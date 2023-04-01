@@ -24,3 +24,7 @@ Route::get('/contact', function () {
 Route::get('/user', function() {
     return "<h1>User Detail Page</h1>";
 });
+
+Route::get('/user/{id}', function($id) {
+    return $id;
+});
