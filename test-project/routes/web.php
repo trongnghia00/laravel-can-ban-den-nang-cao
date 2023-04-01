@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/contact', function () {
     return "<h1>Contact Page</h1>";
-});
+})->name('contact');
 
 Route::get('/user', function() {
     return "<h1>User Detail Page</h1>";
@@ -27,4 +27,8 @@ Route::get('/user', function() {
 
 Route::get('/user/{id}', function($id) {
     return $id;
+})->name('user');
+
+Route::get('/home', function() {
+    return "<a href='". route('user', 40) ."'>Link</a>";
 });
