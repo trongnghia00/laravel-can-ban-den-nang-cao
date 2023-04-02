@@ -32,3 +32,19 @@ Route::get('/user/{id}', function($id) {
 Route::get('/home', function() {
     return "<a href='". route('user', 40) ."'>Link</a>";
 });
+
+// Route Grouping
+Route::group(['prefix' => 'customer'], function() {
+    Route::get('/', function() {
+        return "<h1>Customer List</h1>";
+    });
+    
+    Route::get('/create', function() {
+        return "<h1>Customer Create</h1>";
+    });
+    
+    Route::get('/detail', function() {
+        return "<h1>Customer Detail</h1>";
+    });
+});
+
