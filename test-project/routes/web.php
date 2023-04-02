@@ -48,3 +48,7 @@ Route::group(['prefix' => 'customer'], function() {
     });
 });
 
+// Fallback Route
+Route::fallback(function() {
+    return "404 Error - Route not exist !";
+});
