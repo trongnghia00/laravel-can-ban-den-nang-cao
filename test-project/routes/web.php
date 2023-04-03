@@ -18,7 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    $title = 'This is Contact Page !!!';
+    $intro = 'Hello, my name is Nghia';
+    $data = compact('title', 'intro');
+    return view('contact', $data);
 })->name('contact');
 
 Route::get('/user', function() {

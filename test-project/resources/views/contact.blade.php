@@ -1,1 +1,2 @@
-<h1>This is a Contact Page</h1>
+<h1>{{ $title }}</h1>
+<h2>{{ $intro }}</h2>
