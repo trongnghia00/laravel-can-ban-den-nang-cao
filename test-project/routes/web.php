@@ -14,7 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $articles = [
+        [
+            'title' => 'First Article',
+            'content' => 'This is a content'
+        ],
+        [
+            'title' => 'Second Article',
+            'content' => 'This is a content'
+        ],
+        [
+            'title' => 'Third Article',
+            'content' => 'This is a content'
+        ],
+        [
+            'title' => 'Last Article',
+            'content' => 'This is a content'
+        ]
+    ];
+    return view('home', compact('articles'));
 });
 
 Route::get('/contact', function () {
@@ -41,11 +59,11 @@ Route::group(['prefix' => 'customer'], function() {
     Route::get('/', function() {
         return "<h1>Customer List</h1>";
     });
-    
+
     Route::get('/create', function() {
         return "<h1>Customer Create</h1>";
     });
-    
+
     Route::get('/detail', function() {
         return "<h1>Customer Detail</h1>";
     });
