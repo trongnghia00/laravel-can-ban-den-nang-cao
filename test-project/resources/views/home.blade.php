@@ -7,14 +7,26 @@
 
     <div class="row mt-5">
         @foreach ($articles as $article)
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                    <h5 class="card-title">{{ $article['title'] }}</h5>
-                    <p class="card-text">{{ $article['content'] }}</p>
+            @if ($article['published'])
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ $article['title'] }}</h5>
+                        <p class="card-text">{{ $article['content'] }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ $article['title'] }}</h5>
+                        <p class="card-text">{{ $article['content'] }}</p>
+                        <div class="btn btn-warning">Unpublish</div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         @endforeach
     </div>
 </main>
