@@ -8,29 +8,10 @@
     <title>Hello PHP</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand" style="background-color:cornflowerblue;">
-        <div class="container">
-            <a class="navbar-brand" href="/">Trong Nghia Web</a>
-            <div class="navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    @yield('content')
-    
-    <footer class="bg-light text-center text-lg-start" style="position: fixed; width:100%; bottom: 0;">
-        <div class="text-center p-3">
-            Copyright 2023: ©Trong Nghia
-        </div>
-    </footer>
+    @include('layouts.header')
 
+    @yield('content')
+
+    @include('layouts.footer')
 </body>
 </html>
