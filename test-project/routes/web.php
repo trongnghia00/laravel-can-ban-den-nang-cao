@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,38 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $articles = [
-        [
-            'title' => 'First Article',
-            'content' => 'This is a content',
-            'published' => 1
-        ],
-        [
-            'title' => 'Second Article',
-            'content' => 'This is a content',
-            'published' => 1
-        ],
-        [
-            'title' => 'Third Article',
-            'content' => 'This is a content',
-            'published' => 0
-        ],
-        [
-            'title' => 'Last Article',
-            'content' => 'This is a content',
-            'published' => 1
-        ]
-    ];
-    return view('home', compact('articles'));
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/contact', function () {
-    $title = 'This is Contact Page !!!';
-    $intro = 'Hello, my name is Nghia';
-    $data = compact('title', 'intro');
-    return view('contact', $data);
-})->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::get('/user', function() {
     return view('user.index');
