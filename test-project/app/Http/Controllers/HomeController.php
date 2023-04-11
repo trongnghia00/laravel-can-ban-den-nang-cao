@@ -32,4 +32,9 @@ class HomeController extends Controller
         ];
         return view('home', compact('articles'));
     }
+
+    // get
+    // new
+    // update
+    // delete
 }
