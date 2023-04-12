@@ -6,13 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function __invoke(Request $request)
+    public function index()
     {
         $articles = [
             [
@@ -38,4 +32,9 @@ class HomeController extends Controller
         ];
         return view('home', compact('articles'));
     }
+
+    // get
+    // new
+    // update
+    // delete
 }

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', HomeController::class);
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
