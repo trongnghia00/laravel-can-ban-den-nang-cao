@@ -6,7 +6,8 @@
         <h2>Login</h2>
         <div class="card">
             <div class="card-body">
-                <form action="#" method="post">
+                <form action="{{ route("login.submit") }}" method="post">
+                    @csrf
                     <div class="mb-2">
                         <label for="username" class="form-label">Username</label>
                         <input name="username" class="form-control" />
