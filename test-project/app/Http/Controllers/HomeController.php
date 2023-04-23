@@ -11,7 +11,7 @@ class HomeController extends Controller
      * Handle the incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
      */
     public function __invoke(Request $request)
     {
@@ -39,7 +39,10 @@ class HomeController extends Controller
         // ];
 
 
-        return DB::table('posts')->first();
-        return view('home', compact('articles'));
+        return DB::table('posts')
+                ->where('id', 10)
+                ->get();
+
+        // return view('home', compact('articles'));
     }
 }
