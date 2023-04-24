@@ -15,12 +15,9 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        DB::table('posts')->where('id', 54)->update([
-            'title' => 'New title',
-            'description' => 'This is a updated description.'
-        ]);
+        DB::table('posts')->delete(55);
 
-        dd('Update successful.');
+        dd('Delete successful.');
 
         // return view('home', compact('articles'));
     }
