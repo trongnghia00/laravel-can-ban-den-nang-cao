@@ -15,9 +15,10 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        DB::table('posts')->delete(55);
-
-        dd('Delete successful.');
+        return DB::table('posts')
+                ->join('categories', 'posts.category_id', '=', 'categories.id')
+                ->select('posts.*', 'categories.name as cat_name')
+                ->get();
 
         // return view('home', compact('articles'));
     }
