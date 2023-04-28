@@ -17,15 +17,9 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $post = new MyPost();
-
-        $post->title = 'Post 64';
-        $post->description = 'Cillum laboris aliqua non duis eiusmod adipisicing culpa enim pariatur eiusmod incididunt.';
-        $post->status = 1;
-        $post->published_at = date('Y-m-d');
-        $post->userid = 1;
-        $post->category_id = 1;
-
+        $post = MyPost::where('id', 60)->first();
+        $post->title = 'New title for post 60';
+        $post->description = 'Laboris cupidatat mollit anim adipisicing ipsum cupidatat proident elit.';
         $post->save();
 
         dd('Success.');
