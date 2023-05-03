@@ -17,7 +17,18 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        MyPost::where('id', 61)->delete();
+        // $post = MyPost::create([
+        //     'title' => 'This is from mass',
+        //     'description' => 'This is description from mass',
+        //     'status' => 1,
+        //     'published_at' => date('Y-m-d'),
+        //     'userid' => 1,
+        //     'category_id' => 1
+        // ]);
+
+        $post = MyPost::where('status', 1)->update([
+            'status' => 0
+        ]);
 
         dd('Success.');
 

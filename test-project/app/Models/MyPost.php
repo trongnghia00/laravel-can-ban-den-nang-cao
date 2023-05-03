@@ -10,4 +10,6 @@ class MyPost extends Model
     use HasFactory;
 
     protected $table = 'posts';
+    protected $fillable = ['title', 'description', 'status', 'published_at', 'userid', 'category_id'];
+    // protected $guarded = [];
 }
