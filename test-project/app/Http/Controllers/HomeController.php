@@ -17,20 +17,11 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // $post = MyPost::create([
-        //     'title' => 'This is from mass',
-        //     'description' => 'This is description from mass',
-        //     'status' => 1,
-        //     'published_at' => date('Y-m-d'),
-        //     'userid' => 1,
-        //     'category_id' => 1
-        // ]);
+        //MyPost::where('id', 63)->delete();
 
-        $post = MyPost::where('status', 1)->update([
-            'status' => 0
-        ]);
+        return MyPost::all();
 
-        dd('Success.');
+        // dd('Success.');
 
         // return view('home', compact('articles'));
     }
