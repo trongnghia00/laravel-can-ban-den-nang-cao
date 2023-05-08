@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MyPost;
-//use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,12 +17,8 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return MyPost::all();
-        // return MyPost::onlyTrashed()->get();
+        $users = User::all();
 
-        // MyPost::withTrashed()->find(64)->forceDelete();
-        // dd('Success.');
-
-        // return view('home', compact('articles'));
+        return view('home', compact('users'));
     }
 }
