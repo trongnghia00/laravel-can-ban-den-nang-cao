@@ -17,10 +17,10 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //MyPost::where('id', 63)->delete();
-
         return MyPost::all();
+        // return MyPost::onlyTrashed()->get();
 
+        // MyPost::withTrashed()->find(64)->forceDelete();
         // dd('Success.');
 
         // return view('home', compact('articles'));
