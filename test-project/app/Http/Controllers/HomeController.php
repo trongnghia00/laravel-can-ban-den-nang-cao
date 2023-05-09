@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +16,8 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $addresses = Address::all();
+        $posts = Category::find(2)->posts;
 
-        return view('home', compact('addresses'));
+        return view('home', compact('posts'));
     }
 }

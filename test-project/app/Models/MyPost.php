@@ -22,4 +22,9 @@ class MyPost extends Model
     {
         return PostFactory::new();
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
