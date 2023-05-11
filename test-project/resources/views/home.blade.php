@@ -10,7 +10,11 @@
                     <div class="card-body">
                         <h4>{{$post->title}}</h4>
                         <p>{{$post->description}}</p>
-                        <p>{{$post->category->name}}</p>
+                        <ul>
+                            @foreach ($post->tags as $tag)
+                                <li>{{$tag->name}}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
