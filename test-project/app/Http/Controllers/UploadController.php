@@ -12,8 +12,8 @@ class UploadController extends Controller
         return View('upload');
     }
 
-    public function handleUpload()
+    public function handleUpload(Request $request)
     {
-        return 'Hello';
+        $request->image->storeAs('/images', 'new_image.jpg');
     }
 }
