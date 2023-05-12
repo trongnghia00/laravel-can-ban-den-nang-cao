@@ -11,4 +11,9 @@ class UploadController extends Controller
     {
         return View('upload');
     }
+
+    public function handleUpload()
+    {
+        return 'Hello';
+    }
 }

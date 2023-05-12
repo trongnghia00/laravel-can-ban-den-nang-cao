@@ -33,3 +33,5 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
 
 Route::get('/upload', [UploadController::class, 'index'])->name('upload');
+
+Route::post('/upload', [UploadController::class, 'handleUpload'])->name('upload.submit');
