@@ -4,6 +4,11 @@
 <main class="container">
     <img src="{{asset('images/new_image.jpg')}}" />
     <div class="col-md-4 mt-5">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">{{$error}}</div>
+            @endforeach
+        @endif
         <div class="card">
             <div class="card-body">
                 <form enctype="multipart/form-data" method="post" action="{{route('upload.submit')}}">

@@ -14,6 +14,10 @@ class UploadController extends Controller
 
     public function handleUpload(Request $request)
     {
+        $request->validate([
+            'image' => ['required', 'max:100', 'mimes:png,jpg,gif']
+        ]);
+
         $request->image->storeAs('/images', 'new_image.jpg');
     }
 }
