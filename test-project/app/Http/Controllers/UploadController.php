@@ -22,4 +22,9 @@ class UploadController extends Controller
 
         return redirect()->back();
     }
+
+    public function download()
+    {
+        return response()->download(public_path('/images/new_image.jpg'));
+    }
 }

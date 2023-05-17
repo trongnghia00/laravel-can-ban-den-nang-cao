@@ -36,6 +36,8 @@ Route::get('/upload', [UploadController::class, 'index'])->name('upload');
 
 Route::post('/upload', [UploadController::class, 'handleUpload'])->name('upload.submit');
 
+Route::get('/download', [UploadController::class, 'download'])->name('download');
+
 Route::get('/success', function() {
     return '<h1>Upload Successfully</h1>';
 })->name('success');

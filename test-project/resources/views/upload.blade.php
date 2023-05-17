@@ -24,5 +24,7 @@
             </div>
         </div>
     </div>
+
+    <a href="{{route('download')}}" class="btn btn-primary mt-3">Download Image</a>
 </main>
 @endsection
