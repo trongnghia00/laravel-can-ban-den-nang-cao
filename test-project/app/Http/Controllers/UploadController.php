@@ -19,5 +19,7 @@ class UploadController extends Controller
         ]);
 
         $request->image->storeAs('/images', 'new_image.jpg');
+
+        return redirect()->back();
     }
 }

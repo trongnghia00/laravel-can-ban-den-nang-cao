@@ -35,3 +35,7 @@ Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.subm
 Route::get('/upload', [UploadController::class, 'index'])->name('upload');
 
 Route::post('/upload', [UploadController::class, 'handleUpload'])->name('upload.submit');
+
+Route::get('/success', function() {
+    return '<h1>Upload Successfully</h1>';
+})->name('success');
