@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return View('layouts.master');
+        return View('index');
     }
 
     /**
