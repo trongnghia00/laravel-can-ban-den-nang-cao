@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('pageTitle', 'Create new Post')
+@section('pageTitle', 'Edit Post')
 
 @section('content')
 
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('update', $post->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <div>
