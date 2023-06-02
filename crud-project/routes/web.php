@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::get('{id}/edit', [PostController::class, 'edit'])->name('edit');
 Route::resource('/', PostController::class);
 
 /**
