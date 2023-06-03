@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('pageTitle', 'Index page')
+@section('pageTitle', 'Trashed posts')
 
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-md-6">
-                    <h4>All posts</h4>
+                    <h4>Trashed posts</h4>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
                     <a href="{{route('create')}}" class="btn btn-success">Create</a>&nbsp;
