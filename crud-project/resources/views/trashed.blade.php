@@ -12,8 +12,7 @@
                     <h4>Trashed posts</h4>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                    <a href="{{route('create')}}" class="btn btn-success">Create</a>&nbsp;
-                    <a href="{{route('trashed')}}" class="btn btn-dark">Trashed</a>
+                    <a href="{{route('index')}}" class="btn btn-success">Home</a>
                 </div>
             </div>
         </div>
@@ -44,7 +43,7 @@
                         <td>
                             <div class="d-flex" style="height: 38px">
                                 <a href="{{route('restore', $post->id)}}" class="btn btn-success">Restore</a>&nbsp;
-                                <form action="{{route('destroy', $post->id)}}" method="POST">
+                                <form action="{{route('forceDelete', $post->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger">Delete</button>

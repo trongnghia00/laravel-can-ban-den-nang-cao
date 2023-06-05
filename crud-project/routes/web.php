@@ -17,15 +17,20 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/create', [PostController::class, 'create'])->name('create');
 Route::get('trash', [PostController::class, 'trashed'])->name('trashed');
 Route::get('{id}/restore', [PostController::class, 'restore'])->name('restore');
+Route::delete('{id}/delete', [PostController::class, 'forceDelete'])->name('forceDelete');
 
 Route::get('{id}/edit', [PostController::class, 'edit'])->name('edit');
 Route::post('{id}', [PostController::class, 'update'])->name('update');
 Route::get('{id}', [PostController::class, 'show'])->name('show');
 Route::delete('{id}', [PostController::class, 'destroy'])->name('destroy');
 
-Route::resource('/', PostController::class);
+
+Route::get('/', [PostController::class, 'index'])->name('index');
+Route::post('/', [PostController::class, 'store'])->name('store');
+// Route::resource('/', PostController::class);
 
 /**
  * CRUD
