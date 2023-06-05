@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('trash', [PostController::class, 'trashed'])->name('trashed');
+Route::get('{id}/restore', [PostController::class, 'restore'])->name('restore');
 
 Route::get('{id}/edit', [PostController::class, 'edit'])->name('edit');
 Route::post('{id}', [PostController::class, 'update'])->name('update');
