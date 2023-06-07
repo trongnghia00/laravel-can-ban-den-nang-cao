@@ -37,7 +37,7 @@
                     </tr>
                     <tr>
                         <td>Category</td>
-                        <td>{{$post->category_id}}</td>
+                        <td>{{$post->category->name}}</td>
                     </tr>
                     <tr>
                         <td>Publish Date</td>

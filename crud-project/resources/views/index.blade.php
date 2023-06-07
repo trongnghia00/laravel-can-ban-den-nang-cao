@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="main-content mt-5">
+<div class="main-content my-5">
     <div class="card">
         <div class="card-header">
             <div class="row">
@@ -56,7 +56,9 @@
                     @endforeach
                 </tbody>
             </table>
-            {{$posts->links()}}
+            <div class="d-flex justify-content-center">
+                {{ $posts->links() }}
+            </div>
         </div>
     </div>
 </div>
