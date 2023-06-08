@@ -162,4 +162,9 @@ class PostController extends Controller
 
         return redirect()->back();
     }
+
+    public function notSupport()
+    {
+        return view('notsupport');
+    }
 }

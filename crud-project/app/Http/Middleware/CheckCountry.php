@@ -16,6 +16,11 @@ class CheckCountry
      */
     public function handle(Request $request, Closure $next)
     {
+        $countries = ['us', 'uk', 'vn'];
+
+        if (!in_array($request->country, $countries) && !$request->is('notsupport')) {
+            return redirect()->route('notsupport');
+        }
         return $next($request);
     }
 }

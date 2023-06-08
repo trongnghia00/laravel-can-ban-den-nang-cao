@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('notsupport', [PostController::class, 'notSupport'])->name('notsupport');
+
 Route::get('/create', [PostController::class, 'create'])->name('create');
 Route::get('trash', [PostController::class, 'trashed'])->name('trashed');
 Route::get('{id}/restore', [PostController::class, 'restore'])->name('restore');
