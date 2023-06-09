@@ -20,6 +20,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('notsupport', [PostController::class, 'notSupport'])->name('notsupport');
 
+Route::middleware('authCheck')->group(function() {
+    Route::get('dashboard', function() {
+        return view('dashboard');
+    });
+
+    Route::get('profile', function() {
+        return view('profile');
+    });
+});
+
 Route::get('/create', [PostController::class, 'create'])->name('create');
 Route::get('trash', [PostController::class, 'trashed'])->name('trashed');
 Route::get('{id}/restore', [PostController::class, 'restore'])->name('restore');

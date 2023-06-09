@@ -3,5 +3,5 @@
 @section('pageTitle', 'Index page')
 
 @section('content')
-<h1>The country is not supported.</h1>
+<h1>You don't have permission to access</h1>
 @endsection
