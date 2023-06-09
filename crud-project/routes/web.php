@@ -30,6 +30,8 @@ Route::middleware('authCheck')->group(function() {
     });
 });
 
+Route::get('posts', [PostController::class, 'index'])->name('posts')->middleware('authCheck');
+
 Route::get('/create', [PostController::class, 'create'])->name('create');
 Route::get('trash', [PostController::class, 'trashed'])->name('trashed');
 Route::get('{id}/restore', [PostController::class, 'restore'])->name('restore');
