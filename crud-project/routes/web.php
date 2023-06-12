@@ -18,19 +18,21 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('notsupport', [PostController::class, 'notSupport'])->name('notsupport');
+Route::get('notsupport', function() {
+    return view('notsupport');
+})->name('notsupport');
 
-Route::middleware('authCheck')->group(function() {
-    Route::get('dashboard', function() {
-        return view('dashboard');
-    });
+// Route::middleware('authCheck')->group(function() {
+//     Route::get('dashboard', function() {
+//         return view('dashboard');
+//     });
 
-    Route::get('profile', function() {
-        return view('profile');
-    });
-});
+//     Route::get('profile', function() {
+//         return view('profile');
+//     });
+// });
 
-Route::get('posts', [PostController::class, 'index'])->name('posts')->middleware('authCheck');
+Route::get('posts', [PostController::class, 'index'])->name('posts');
 
 Route::get('/create', [PostController::class, 'create'])->name('create');
 Route::get('trash', [PostController::class, 'trashed'])->name('trashed');

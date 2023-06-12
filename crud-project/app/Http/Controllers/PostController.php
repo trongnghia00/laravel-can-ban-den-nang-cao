@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('authCheck')->except('index');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -161,10 +166,5 @@ class PostController extends Controller
         $post->forceDelete();
 
         return redirect()->back();
-    }
-
-    public function notSupport()
-    {
-        return view('notsupport');
     }
 }
