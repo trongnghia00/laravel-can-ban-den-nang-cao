@@ -22,6 +22,10 @@ Route::get('notsupport', function() {
     return view('notsupport');
 })->name('notsupport');
 
+Route::get('comp', function () {
+    return view('comp');
+});
+
 // Route::middleware('authCheck')->group(function() {
 //     Route::get('dashboard', function() {
 //         return view('dashboard');
