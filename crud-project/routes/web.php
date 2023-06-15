@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,8 @@ Route::get('notsupport', function() {
 })->name('notsupport');
 
 Route::get('comp', function () {
-    return view('comp');
+    $posts = Post::all();
+    return view('comp', compact('posts'));
 });
 
 // Route::middleware('authCheck')->group(function() {
