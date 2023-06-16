@@ -1,3 +1,3 @@
 <div>
-    <button>Submit</button>
+    <button>{{$slot}}</button>
 </div>
