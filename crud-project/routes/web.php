@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Models\Post;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('notsupport', function() {
     return view('notsupport');
 })->name('notsupport');
@@ -28,15 +25,13 @@ Route::get('comp', function () {
     return view('comp', compact('posts'));
 });
 
-// Route::middleware('authCheck')->group(function() {
-//     Route::get('dashboard', function() {
-//         return view('dashboard');
-//     });
+Route::get('send-email', function () {
+    Mail::raw('Hello World !!! This is a test mail.', function($message) {
+        $message->to('...')->subject('Test Email');
+    });
 
-//     Route::get('profile', function() {
-//         return view('profile');
-//     });
-// });
+    dd('Success');
+});
 
 Route::get('posts', [PostController::class, 'index'])->name('posts');
 
@@ -53,12 +48,4 @@ Route::delete('{id}', [PostController::class, 'destroy'])->name('destroy');
 
 Route::get('/', [PostController::class, 'index'])->name('index');
 Route::post('/', [PostController::class, 'store'])->name('store');
-// Route::resource('/', PostController::class);
 
-/**
- * CRUD
- * C = Create
- * R = Read
- * U = Update
- * D = Delete
- */
