@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Mail\TestMail;
 use App\Models\Post;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -26,9 +27,11 @@ Route::get('comp', function () {
 });
 
 Route::get('send-email', function () {
-    Mail::raw('Hello World !!! This is a test mail.', function($message) {
-        $message->to('...')->subject('Test Email');
-    });
+    // Mail::raw('Hello World !!! This is a test mail.', function($message) {
+    //     $message->to('...')->subject('Test Email');
+    // });
+
+    Mail::send(new TestMail);
 
     dd('Success');
 });
