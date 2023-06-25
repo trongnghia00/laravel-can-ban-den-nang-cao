@@ -39,11 +39,23 @@ Route::get('send-email', function () {
 
 Route::get('get-session', function (Request $request) {
     // $data = session()->all();
-    // $data = $request->session()->all();
+    $data = $request->session()->all();
 
-    $data = $request->session()->get('_token');
+    // $data = $request->session()->get('_token');
 
     dd($data);
+});
+
+Route::get('store-session', function(Request $request){
+    // $request->session()->put('user_id', 123);
+    // $request->session()->put([
+    //     'logged_in' => true,
+    //     'user_name' => 'Nghia'
+    // ]);
+
+    session(['user_ip' => '192.168.1.1']);
+
+    return redirect('get-session');
 });
 
 Route::get('posts', [PostController::class, 'index'])->name('posts');
