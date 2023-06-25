@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Mail\TestMail;
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,15 @@ Route::get('send-email', function () {
     Mail::send(new TestMail);
 
     dd('Success');
+});
+
+Route::get('get-session', function (Request $request) {
+    // $data = session()->all();
+    // $data = $request->session()->all();
+
+    $data = $request->session()->get('_token');
+
+    dd($data);
 });
 
 Route::get('posts', [PostController::class, 'index'])->name('posts');
