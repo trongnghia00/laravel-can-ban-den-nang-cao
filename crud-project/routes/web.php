@@ -47,13 +47,22 @@ Route::get('get-session', function (Request $request) {
 });
 
 Route::get('store-session', function(Request $request){
-    // $request->session()->put('user_id', 123);
-    // $request->session()->put([
-    //     'logged_in' => true,
-    //     'user_name' => 'Nghia'
-    // ]);
+    $request->session()->put('user_id', 123);
+    $request->session()->put([
+        'logged_in' => true,
+        'user_name' => 'Nghia'
+    ]);
 
     session(['user_ip' => '192.168.1.1']);
+
+    return redirect('get-session');
+});
+
+Route::get('del-session', function (Request $request) {
+    // $request->session()->forget(['user_ip', 'logged_in']);
+    // session()->forget(['user_name']);
+
+    $request->session()->flush();
 
     return redirect('get-session');
 });
