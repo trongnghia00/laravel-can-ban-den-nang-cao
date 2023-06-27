@@ -67,6 +67,12 @@ Route::get('del-session', function (Request $request) {
     return redirect('get-session');
 });
 
+Route::get('flash-session', function(Request $request) {
+    session()->flash('success', 'Thao tác thực hiện thành công !!!');
+
+    return redirect('get-session');
+});
+
 Route::get('posts', [PostController::class, 'index'])->name('posts');
 
 Route::get('/create', [PostController::class, 'create'])->name('create');
