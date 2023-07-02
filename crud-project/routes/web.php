@@ -4,6 +4,7 @@ use App\Http\Controllers\PostController;
 use App\Mail\TestMail;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -71,6 +72,10 @@ Route::get('flash-session', function(Request $request) {
     session()->flash('success', 'Thao tác thực hiện thành công !!!');
 
     return redirect('get-session');
+});
+
+Route::get('forget-cache', function() {
+    Cache::forget('posts');
 });
 
 Route::get('posts', [PostController::class, 'index'])->name('posts');
