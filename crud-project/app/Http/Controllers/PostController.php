@@ -28,7 +28,7 @@ class PostController extends Controller
         //     return Post::with('category')->orderByDesc('id')->paginate(4);
         // });
 
-        $posts = Cache::rememberForever('posts', function() {
+        $posts = Cache::rememberForever('posts-page-' . request('page', 1), function() {
             return Post::with('category')->orderByDesc('id')->paginate(4);
         });
 

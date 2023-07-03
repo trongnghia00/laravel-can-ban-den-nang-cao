@@ -75,7 +75,8 @@ Route::get('flash-session', function(Request $request) {
 });
 
 Route::get('forget-cache', function() {
-    Cache::forget('posts');
+    // Cache::forget('posts');
+    Cache::flush();
 });
 
 Route::get('posts', [PostController::class, 'index'])->name('posts');
