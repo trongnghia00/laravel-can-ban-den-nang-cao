@@ -1,0 +1,3 @@
+# Authentication : Xác thực
+
+# Authorization : ủy quyền
