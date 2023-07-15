@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user-data', function() {
         return auth()->user()->email;
     });
+
+    Route::get('/create', [PostController::class, 'create']);
 });
 
 Route::get('/dashboard', function () {
