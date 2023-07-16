@@ -28,7 +28,7 @@
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>&nbsp;
-                            @can('is_admin')
+                            @can('create', \App\Models\Post::class)
                                 <a href="{{ url('/create') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">New post</a>
                             @endcan
                             <button class="text-sm text-gray-700 dark:text-gray-500 underline" type="submit" style="cursor: pointer; background: transparent;">Logout</button>
