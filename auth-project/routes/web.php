@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', function () {
-        return view('welcome');
+        $posts = Post::all();
+        return view('welcome', compact('posts'));
     });
 
     Route::get('/user-data', function() {
@@ -26,6 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
     Route::get('/create', [PostController::class, 'create']);
+
+    Route::get('/delete/{id}', [PostController::class, 'delete']);
 });
 
 Route::get('/dashboard', function () {

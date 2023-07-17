@@ -12,4 +12,12 @@ class PostController extends Controller
 
         return "<h1>This is create page</h1>";
     }
+
+    public function delete($id) {
+        $post = Post::findOrFail($id);
+
+        $this->authorize('delete', $post);
+
+        return "<h1>Are you sure you want to delete post with id {$post->id}</h1>";
+    }
 }

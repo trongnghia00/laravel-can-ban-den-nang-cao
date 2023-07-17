@@ -36,3 +36,7 @@ class AuthServiceProvider extends ServiceProvider
         // });
     }
 }
+
+// 1: Admin
+// 2: Writer
+// 3: User
