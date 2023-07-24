@@ -28,4 +28,8 @@ class Image extends Model
     public function fileUrl() {
         return Storage::url($this->file);
     }
+
+    public function link() {
+        return route('image.show', $this->slug);
+    }
 }

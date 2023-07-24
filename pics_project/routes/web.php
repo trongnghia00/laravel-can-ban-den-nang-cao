@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ImageController::class, 'index'])->name('image.index');
+Route::get('/image/{image}', [ImageController::class, 'show'])->name('image.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
