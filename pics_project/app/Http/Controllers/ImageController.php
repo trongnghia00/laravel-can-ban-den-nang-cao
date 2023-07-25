@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class ImageController extends Controller
 {
     public function index() {
-        // $images = Image::published()->latest()->paginate(15);
-        $images = Image::latest()->paginate(15);
+        $images = Image::published()->latest()->paginate(15);
 
         return view('image.index', compact('images'));
     }

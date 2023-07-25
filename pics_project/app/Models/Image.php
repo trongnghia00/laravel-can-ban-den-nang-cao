@@ -38,4 +38,29 @@ class Image extends Model
     public function route($method, $key = 'id') {
         return route("image.$method", $this->$key);
     }
+
+    public function getSlug() {
+        $slug = str($this->title)->slug();
+        $numSlugs = static::where('slug', 'LIKE', "$slug%")->count();
+        if ($numSlugs > 0) {
+            return $slug . '-' . $numSlugs + 1;
+        }
+        return $slug;
+    }
+
+    protected static function booted() {
+        static::creating(function ($image) {
+            if ($image->title) {
+                $image->slug = $image->getSlug();
+                $image->is_published = true;
+            }
+        });
+
+        static::updating(function ($image) {
+            if ($image->title && !$image->slug) {
+                $image->slug = $image->getSlug();
+                $image->is_published = true;
+            }
+        });
+    }
 }
