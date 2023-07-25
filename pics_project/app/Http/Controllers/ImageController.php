@@ -35,4 +35,9 @@ class ImageController extends Controller
         $image->update($request->getData());
         return redirect()->route('image.index')->with('message', 'Image has been updated !');
     }
+
+    public function destroy(Image $image) {
+        $image->delete();
+        return redirect()->route('image.index')->with('message', 'Image has been deleted !');
+    }
 }

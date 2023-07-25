@@ -21,6 +21,7 @@ Route::get('/image', [ImageController::class, 'create'])->name('image.create');
 Route::post('/image', [ImageController::class, 'store'])->name('image.store');
 Route::get('/image/{image}/edit', [ImageController::class, 'edit'])->name('image.edit');
 Route::put('/image/{image}', [ImageController::class, 'update'])->name('image.update');
+Route::delete('/image/{image}', [ImageController::class, 'destroy'])->name('image.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
