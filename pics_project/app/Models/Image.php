@@ -34,4 +34,8 @@ class Image extends Model
     public function link() {
         return $this->slug ? route('image.show', $this->slug) : "#";
     }
+
+    public function route($method, $key = 'id') {
+        return route("image.$method", $this->$key);
+    }
 }

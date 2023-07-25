@@ -19,6 +19,8 @@ Route::get('/', [ImageController::class, 'index'])->name('image.index');
 Route::get('/image/{image}', [ImageController::class, 'show'])->name('image.show');
 Route::get('/image', [ImageController::class, 'create'])->name('image.create');
 Route::post('/image', [ImageController::class, 'store'])->name('image.store');
+Route::get('/image/{image}/edit', [ImageController::class, 'edit'])->name('image.edit');
+Route::put('/image/{image}', [ImageController::class, 'update'])->name('image.update');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

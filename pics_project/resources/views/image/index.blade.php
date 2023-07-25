@@ -11,5 +11,8 @@
         <a href="{{ $image->link() }}">
             <img src="{{ $image->fileUrl() }}" alt="{{ $image->title }}" width="300px" />
         </a>
+        <div>
+            <a href="{{ $image->route('edit') }}">Edit</a>
+        </div>
     </div>
 @endforeach

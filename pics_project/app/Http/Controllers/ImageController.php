@@ -27,4 +27,13 @@ class ImageController extends Controller
         Image::create($request->getData());
         return redirect()->route('image.index')->with('message', 'Image has been uploaded !');
     }
+
+    public function edit(Image $image) {
+        return view('image.edit', compact('image'));
+    }
+
+    public function update(Image $image, ImageRequest $request) {
+        $image->update($request->getData());
+        return redirect()->route('image.index')->with('message', 'Image has been updated !');
+    }
 }
