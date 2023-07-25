@@ -1,5 +1,7 @@
 <h1>All images </h1>
 
+<a href="{{ route('image.create') }}">Upload Image</a>
+
 @foreach ($images as $image)
     <div>
         <a href="{{ $image->link() }}">
