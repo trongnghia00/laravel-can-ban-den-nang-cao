@@ -1,0 +1,22 @@
+.img-btns {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.3s linear;
+}
+
+.img-btns form {
+    display: inline-block;
+}
+
+.card:hover .img-btns {
+    visibility: visible;
+    opacity: 1;
+}

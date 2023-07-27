@@ -1,23 +1,28 @@
 <x-layout title="All images">
-    <h1>All images </h1>
+    <div class="container-fluid mt-4">
+        @if ($message = session('message'))
+            <div>{{ $message }}</div>
+        @endif
 
-    @if ($message = session('message'))
-        <div>{{ $message }}</div>
-    @endif
-
-    @foreach ($images as $image)
-        <div>
-            <a href="{{ $image->link() }}">
-                <img src="{{ $image->fileUrl() }}" alt="{{ $image->title }}" width="300px" />
-            </a>
-            <div>
-                <a href="{{ $image->route('edit') }}">Edit</a> |
-                <x-form action="{{ $image->route('destroy') }}" method="DELETE" style="display: inline;">
-                    <button type="submit" onclick="return confirm('Are you sure ?')">Delete</button>
-                </x-form>
-            </div>
+        <div class="row">
+            @foreach ($images as $image)
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <a href="{{ $image->link() }}">
+                            <img src="{{ $image->fileUrl() }}" alt="{{ $image->title }}" class="card-img-top" />
+                        </a>
+                        <div class="img-btns">
+                            <a class="btn btn-sm btn-info me-2" href="{{ $image->route('edit') }}">Edit</a> |
+                            <x-form action="{{ $image->route('destroy') }}" method="DELETE">
+                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure ?')">Delete</button>
+                            </x-form>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    @endforeach
+        {{ $images->links() }}
+    </div>
 </x-layout>
 
 
