@@ -16,6 +16,10 @@ class Image extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function uploadDate() {
+        return $this->created_at->diffForHumans();
+    }
+
     public static function makeDirectory() {
         $subFolder = 'images/' . date('Y/m/d');
         Storage::makeDirectory($subFolder);
