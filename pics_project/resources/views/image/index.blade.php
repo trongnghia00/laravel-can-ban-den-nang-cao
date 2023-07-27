@@ -1,7 +1,9 @@
 <x-layout title="All images">
     <div class="container-fluid mt-4">
         @if ($message = session('message'))
-            <div>{{ $message }}</div>
+            <x-alert type="success" dismissible>
+                {{ $message }}
+            </x-alert>
         @endif
 
         <div class="row">
