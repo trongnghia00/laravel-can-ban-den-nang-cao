@@ -17,9 +17,16 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/">PicsProject</a>
             <div class="d-flex">
-                <a href="{{ route('image.create') }}" class="btn btn-success">Upload</a>&nbsp;
-                <a href="#" class="btn btn-outline-secondary">Login</a>&nbsp;
-                <a href="#" class="btn btn-danger">Register</a>&nbsp;
+                @auth
+                    <a href="{{ route('image.create') }}" class="btn btn-success">Upload</a>&nbsp;
+                    <a href="{{ route('profile.edit') }}" class="btn btn-outline-secondary">Profile</a>&nbsp;
+                    <x-form action="{{ route('logout') }}" method="POST">
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure ?')">Logout</button>
+                    </x-form>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-outline-secondary">Login</a>&nbsp;
+                    <a href="{{ route('register') }}" class="btn btn-danger">Register</a>&nbsp;
+                @endauth
             </div>
         </div>
     </nav>
