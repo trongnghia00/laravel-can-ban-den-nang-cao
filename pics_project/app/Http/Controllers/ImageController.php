@@ -28,6 +28,7 @@ class ImageController extends Controller
     }
 
     public function edit(Image $image) {
+        $this->authorize('update-image', $image);
         return view('image.edit', compact('image'));
     }
 
@@ -37,6 +38,7 @@ class ImageController extends Controller
     }
 
     public function destroy(Image $image) {
+        $this->authorize('delete-image', $image);
         $image->delete();
         return redirect()->route('image.index')->with('message', 'Image has been deleted !');
     }

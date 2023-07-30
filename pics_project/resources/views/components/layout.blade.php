@@ -18,6 +18,7 @@
             <a class="navbar-brand" href="/">PicsProject</a>
             <div class="d-flex">
                 @auth
+                    <span class="navbar-brand text-danger">{{ auth()->user()->name }}</span>
                     <a href="{{ route('image.create') }}" class="btn btn-success">Upload</a>&nbsp;
                     <a href="{{ route('profile.edit') }}" class="btn btn-outline-secondary">Profile</a>&nbsp;
                     <x-form action="{{ route('logout') }}" method="POST">
