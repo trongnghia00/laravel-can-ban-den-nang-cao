@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Image;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ImageRequest extends FormRequest
 {
@@ -38,7 +39,7 @@ class ImageRequest extends FormRequest
     public function getData()
     {
         $data = $this->validated() + [
-            'user_id' => 1 // $this->user->id
+            'user_id' => Auth::user()->id
         ];
 
         if ($this->hasFile('file')) {
