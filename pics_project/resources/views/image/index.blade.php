@@ -13,12 +13,18 @@
                         <a href="{{ $image->link() }}">
                             <img src="{{ $image->fileUrl() }}" alt="{{ $image->title }}" class="card-img-top" />
                         </a>
-                        <div class="img-btns">
-                            <a class="btn btn-sm btn-info me-2" href="{{ $image->route('edit') }}">Edit</a> |
-                            <x-form action="{{ $image->route('destroy') }}" method="DELETE">
-                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure ?')">Delete</button>
-                            </x-form>
-                        </div>
+                        @canany(['update-image', 'delete-image'], $image)
+                            <div class="img-btns">
+                                @can('update-image', $image)
+                                    <a class="btn btn-sm btn-info me-2" href="{{ $image->route('edit') }}">Edit</a>
+                                @endcan
+                                @can('delete-image', $image)
+                                    <x-form action="{{ $image->route('destroy') }}" method="DELETE">
+                                        <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Are you sure ?')">Delete</button>
+                                    </x-form>
+                                @endcan
+                            </div>
+                        @endcanany
                     </div>
                 </div>
             @endforeach
